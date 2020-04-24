@@ -1,0 +1,13 @@
+server:
+  port: 7310
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_todo_mvc
+    username: 
+    password:
+  jpa:
+    hibernate.ddl-auto: create-drop
+    generate-ddl: true
+    show-sql: true
