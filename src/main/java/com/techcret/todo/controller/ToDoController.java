@@ -22,13 +22,13 @@ public class ToDoController {
     public String list(Model model) {
         log.info("ToDo List Page");
         model.addAttribute("toDoList", toDoService.list());
-        return "/toDo/list.html";
+        return "toDo/list.html";
     }
 
     @GetMapping(value = "/create")
     public String create() {
         log.info("ToDo Create Page");
-        return "/toDo/create.html";
+        return "toDo/create.html";
     }
 
     @PostMapping(value = "/save")
