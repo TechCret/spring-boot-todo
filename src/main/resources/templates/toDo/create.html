@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+</head>
+
+<body>
+    <div class="container margin-top-list-page">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <div class="row">
+                        <div class="col">
+                            <p>ToDo Create</p>
+                        </div>
+                        <div class="col text-right">
+                            <a th:href="@{/list}" class="btn btn-primary btn-sm">ToDo List</a>
+                        </div>
+                    </div>
+                </h5>
+                <form name="toDoCreateForm" method="POST" th:action="@{/save}">
+                    <div class="form-group col-12">
+                        <label for="title">Title</label>
+                        <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title" />
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="decsription">Description</label>
+                        <textarea name="description" class="form-control" rows="4"
+                            placeholder="Enter Description"></textarea>
+                    </div>
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

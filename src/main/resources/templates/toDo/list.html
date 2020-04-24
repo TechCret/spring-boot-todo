@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+</head>
+
+<body>
+    <div class="container margin-top-list-page">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <div class="row">
+                        <div class="col">
+                            <p>ToDo List</p>
+                        </div>
+                        <div class="col text-right">
+                            <a th:href="@{/create}" class="btn btn-primary btn-sm">Create ToDo</a>
+                        </div>
+                    </div>
+                </h5>
+                <div class="table-responsive">
+                    <table th:if="${not #lists.isEmpty(toDoList)}" class="table table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Dated</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Is Done?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="toDo,iter : ${toDoList}">
+                                <th scope="row" th:text="${iter.index+1}"></th>
+                                <td th:text="${toDo.getDateCreated()}">Task Date</td>
+                                <td th:text="${toDo.getTitle()}">Task Title</td>
+                                <td th:text="${toDo.getIsDone()?'Done':'Pending'}">Task Title</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="alert alert-danger text-center" th:if="${#lists.isEmpty(toDoList)}"
+          >
+            ToDo list is empty now. Please create some to see them here.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

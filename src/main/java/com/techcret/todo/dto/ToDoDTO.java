@@ -20,9 +20,9 @@ public class ToDoDTO {
         this.title = toDo.getTitle();
         this.description = toDo.getDescription();
         this.dateCreated =
-                toDo.getDateCreated().format(DateTimeFormatter.ofPattern("dd/MMM/yyyy hh:mm:ss"));
+                toDo.getDateCreated().format(DateTimeFormatter.ofPattern("dd/MMM/yyyy hh:mm a"));
         this.lastUpdated =
-                toDo.getLastUpdated().format(DateTimeFormatter.ofPattern("dd/MMM/yyyy hh:mm:ss"));
+                toDo.getLastUpdated().format(DateTimeFormatter.ofPattern("dd/MMM/yyyy hh:mm a"));
         this.uniqueId = toDo.getUniqueId();
         this.isDone = toDo.getIsDone();
     }
